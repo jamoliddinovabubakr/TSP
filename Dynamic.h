@@ -7,21 +7,20 @@
 
 class Dynamic {
 private:
-    int **graph;
-    int N;
+    int **graph;  // graph
+    int N; // number of vertices
     int steps = 0;
     unsigned int start_time = 0;
     unsigned int end_time = 0;
 public:
-    int path;
-    Dynamic(int V);
+    int path;// store the minimum path
 
     Dynamic(int **arr, int V);
 
-    void print_graph();
-
+    // find the minimum path
     void dynamic();
 
+    // time divide to steps
     void time_divide_to_steps();
 
 };

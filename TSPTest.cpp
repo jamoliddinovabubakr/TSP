@@ -21,6 +21,11 @@ TSPTest::TSPTest(int V) {
     }
 }
 
+TSPTest::TSPTest(int **graph, int V) {
+    arr = graph;
+    N = V;
+}
+
 
 void TSPTest::time_test() {
     Permutation p(arr, N);
@@ -31,6 +36,14 @@ void TSPTest::time_test() {
     d.time_divide_to_steps();
 }
 
+void TSPTest::print_graph() {
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << "\n";
+    }
+}
 
 void TSPTest::min_path_test() {
     Permutation p_test(arr, N);
@@ -53,15 +66,30 @@ void TSPTest::min_path_test() {
         }
     }
 
-/*            for (int i = 0; i < N; ++i) {
+/*
+            for (int i = 0; i < N; ++i) {
                 for (int j = i + 1; j < N; ++j) {
                     if (p_test.traversed[i] == p_test.traversed[j]) {
                         std::cout << "Error";
                     }
                 }
             }
-        std::cout << p_test.path << '\n';*/
+        std::cout << p_test.path << '\n';
+*/
+
     if (p_test.path != d_test.path) {
         std::cout << "Error" << std::endl;
+    }
+}
+
+
+void TSPTest::manual_testing(int path) {
+    Permutation p_test(arr, N);
+    Dynamic d_test(arr, N);
+    p_test.permutation();
+    d_test.dynamic();
+    if (!(p_test.path == d_test.path && path == d_test.path)) {
+        std::cout << "Error in manual testing function!" << std::endl;
+        std::cout << p_test.path << " != " << path << std::endl;
     }
 }

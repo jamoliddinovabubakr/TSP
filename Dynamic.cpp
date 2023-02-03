@@ -1,37 +1,11 @@
-//
-// Created by user on 1/20/2023.
-//
-
 #include "Dynamic.h"
-
-
-Dynamic::Dynamic(int V) {
-    N = V;
-    graph = new int *[N];
-
-    for (int i = 0; i < N; i++) {
-        graph[i] = new int[N];
-    }
-    int n = 0;
-    for (int k = 0; k < N; k++) {
-        for (; n < N; n++) {
-            if (k == n) {
-                graph[k][n] = 0;
-                continue;
-            }
-            graph[k][n] = rand() % 10 + 5;
-            graph[n][k] = graph[k][n];
-        }
-        n = k;
-    }
-}
 
 Dynamic::Dynamic(int **arr, int V) {
     graph = arr;
     N = V;
 }
 
-
+/*
 void Dynamic::print_graph() {
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
@@ -40,6 +14,7 @@ void Dynamic::print_graph() {
         std::cout << std::endl;
     }
 }
+*/
 
 void Dynamic::dynamic() {
     start_time = clock();
