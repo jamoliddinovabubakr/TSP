@@ -13,12 +13,20 @@ public:
 
     void time_test();
 
-    void min_path_test();
+    void test_correctness();
 
     void print_graph();
 
-    // test with static // test correct
     void manual_testing(int path);
+
+    void time_test_permutation();
+
+    void time_test_dynamic();
+
+    void test_dynamic();
+
+    void test_permutation();
+
 };
 
 

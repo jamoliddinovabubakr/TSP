@@ -26,6 +26,19 @@ TSPTest::TSPTest(int **graph, int V) {
     N = V;
 }
 
+void TSPTest::time_test_permutation() {
+    Permutation p(arr, N);
+    p.permutation();
+    p.time_divide_to_steps();
+}
+
+
+void TSPTest::time_test_dynamic() {
+    Dynamic d(arr, N);
+    d.dynamic();
+    d.time_divide_to_steps();
+}
+
 
 void TSPTest::time_test() {
     Permutation p(arr, N);
@@ -45,7 +58,17 @@ void TSPTest::print_graph() {
     }
 }
 
-void TSPTest::min_path_test() {
+void TSPTest::test_dynamic() {
+    Dynamic d_test(arr, N);
+    d_test.dynamic();
+}
+
+void TSPTest::test_permutation() {
+    Dynamic d_test(arr, N);
+    d_test.dynamic();
+}
+
+void TSPTest::test_correctness() {
     Permutation p_test(arr, N);
     Dynamic d_test(arr, N);
     p_test.permutation();

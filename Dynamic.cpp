@@ -5,6 +5,7 @@ Dynamic::Dynamic(int **arr, int V) {
     N = V;
 }
 
+
 /*
 void Dynamic::print_graph() {
     for (int i = 0; i < N; ++i) {
@@ -35,7 +36,13 @@ void Dynamic::dynamic() {
     path = d[(1 << N) - 1][0];
 }
 
+using namespace std;
 
 void Dynamic::time_divide_to_steps() {
-    std::cout << ((double) end_time / CLOCKS_PER_SEC) / double(steps) << std::endl;
+    std::ofstream output_file_d;
+    output_file_d.open("file_2.csv", ios::app);
+    output_file_d << (double) end_time / CLOCKS_PER_SEC << ",";
+    output_file_d << steps << ",";
+    output_file_d << ((double) end_time / CLOCKS_PER_SEC) / double(steps) << "\n";
+
 }
